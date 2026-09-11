@@ -1,0 +1,25 @@
+.container{
+  width: 80%;
+  margin: auto;
+  margin-top: 1rem;
+}
+
+.toolbar-link{
+  text-decoration: none;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  margin-left: 1rem;
+}
+
+.toolbar-link:hover {
+  background-color: rgb(85, 85, 214);
+}
+
+.spacer{
+  width: 3rem;
+}
+
+mat-toolbar{
+  background-color: rgb(62, 62, 236);
+  color: white;
+}
