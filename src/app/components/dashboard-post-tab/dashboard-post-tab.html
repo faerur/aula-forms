@@ -1,1 +1,44 @@
-<p>dashboard-post-tab works!</p>
+<div class="new-post-button">
+  <button mat-flat-button (click)="openPostFormDialog()">
+    Nova postagem
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+<table mat-table [dataSource]="posts">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>Id</th>
+    <td mat-cell *matCellDef="let post">{{post.id}}</td>
+  </ng-container>
+
+   <ng-container matColumnDef="author">
+    <th mat-header-cell *matHeaderCellDef>Autor</th>
+    <td mat-cell *matCellDef="let post">{{post.author}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef>Title</th>
+    <td mat-cell *matCellDef="let post">{{post.title}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef>Date</th>
+    <td mat-cell *matCellDef="let post">{{post.date}}</td>
+  </ng-container>
+
+
+   <ng-container matColumnDef="edit">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let post">Editar</td>
+  </ng-container>
+
+  <ng-container matColumnDef="delete">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let post">Excluir</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+
+
+

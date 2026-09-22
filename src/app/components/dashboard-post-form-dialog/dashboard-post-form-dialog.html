@@ -1,0 +1,29 @@
+<div class="dialog-container">
+<h2>Nova postagem</h2>
+<mat-dialog-content>
+  <form [formGroup]="postForm" >
+    <mat-form-field class="form-field">
+      <mat-label>Autor</mat-label>
+      <input matInput name="autor" formControlName="author">
+      <mat-error>Campo autor deve ser preenchido</mat-error>
+    </mat-form-field>
+    <mat-form-field class="form-field">
+      <mat-label>Título</mat-label>
+      <input matInput name="titulo" formControlName="title">
+      <mat-error>Campo título deve ser preenchido</mat-error>
+    </mat-form-field>
+    <mat-form-field class="form-field">
+      <mat-label>Data</mat-label>
+      <input matInput name="data" formControlName="date">
+
+    </mat-form-field>
+    <mat-form-field class="form-field">
+      <mat-label>Conteúdo</mat-label>
+      <textarea matInput rows="10" name="conteudo" formControlName="content"></textarea>
+    </mat-form-field>
+    <button mat-button>Salvar</button>
+  </form>
+
+</mat-dialog-content>
+
+</div>

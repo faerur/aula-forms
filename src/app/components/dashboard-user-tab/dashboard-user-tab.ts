@@ -9,5 +9,4 @@ import {Post} from '../../models/post';
   templateUrl: './dashboard-user-tab.html',
 })
 export class DashboardUserTab {
-  posts: Post[] = [];
 }
