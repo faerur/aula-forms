@@ -1,7 +1,7 @@
 <div class="dialog-container">
-<h2>Nova postagem</h2>
+<h2>{{formTitle}}</h2>
 <mat-dialog-content>
-  <form [formGroup]="postForm" >
+  <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
     <mat-form-field class="form-field">
       <mat-label>Autor</mat-label>
       <input matInput name="autor" formControlName="author">
@@ -14,14 +14,17 @@
     </mat-form-field>
     <mat-form-field class="form-field">
       <mat-label>Data</mat-label>
-      <input matInput name="data" formControlName="date">
-
+      <input matInput name="data" [matDatepicker]="picker" formControlName="date">
+      <mat-hint>DD/MM/AAAA</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error>Uma data deve ser selecionada</mat-error>
     </mat-form-field>
     <mat-form-field class="form-field">
       <mat-label>Conteúdo</mat-label>
       <textarea matInput rows="10" name="conteudo" formControlName="content"></textarea>
     </mat-form-field>
-    <button mat-button>Salvar</button>
+    <button mat-button [disabled]="!postForm.valid">Salvar</button>
   </form>
 
 </mat-dialog-content>

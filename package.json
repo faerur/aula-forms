@@ -17,11 +17,18 @@
     "@angular/core": "^22.1.0",
     "@angular/forms": "^22.1.0",
     "@angular/material": "^22.1.6",
+    "@angular/material-luxon-adapter": "^22.1.7",
     "@angular/platform-browser": "^22.1.0",
     "@angular/router": "^22.1.0",
+    "@types/luxon": "^3.7.5",
+    "@types/uuid": "^10.0.0",
     "esbuild": "^0.28.2",
+    "json": "^11.0.0",
+    "json-server": "^1.0.0-beta.15",
+    "luxon": "^3.7.2",
     "rxjs": "~7.8.0",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "uuid": "^14.0.2"
   },
   "devDependencies": {
     "@angular/build": "^22.1.7",

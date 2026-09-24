@@ -9,3 +9,8 @@ form{
 .dialog-container{
   padding: 1rem;
 }
+
+button.example-custom-date-class {
+  background: orange;
+  border-radius: 100%;
+}

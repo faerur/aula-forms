@@ -12,7 +12,7 @@
 
    <ng-container matColumnDef="author">
     <th mat-header-cell *matHeaderCellDef>Autor</th>
-    <td mat-cell *matCellDef="let post">{{post.author}}</td>
+    <td mat-cell *matCellDef="let post">{{post.autor}}</td>
   </ng-container>
 
   <ng-container matColumnDef="title">
@@ -22,18 +22,18 @@
 
   <ng-container matColumnDef="date">
     <th mat-header-cell *matHeaderCellDef>Date</th>
-    <td mat-cell *matCellDef="let post">{{post.date}}</td>
+    <td mat-cell *matCellDef="let post">{{post.data}}</td>
   </ng-container>
 
 
    <ng-container matColumnDef="edit">
     <th mat-header-cell *matHeaderCellDef></th>
-    <td mat-cell *matCellDef="let post">Editar</td>
+    <td mat-cell *matCellDef="let post" class="new"><a mat-stroked-button (click)="openEditFormDialog(post.id)">Editar</a></td>
   </ng-container>
 
   <ng-container matColumnDef="delete">
     <th mat-header-cell *matHeaderCellDef></th>
-    <td mat-cell *matCellDef="let post">Excluir</td>
+    <td mat-cell *matCellDef="let post" ><a mat-flat-button>Excluir</a></td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
