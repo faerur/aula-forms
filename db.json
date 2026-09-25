@@ -2,17 +2,17 @@
   "posts": [
     {
       "id": "RIg9LMXQUKc",
-      "autor": "wd",
-      "title": "dw",
+      "autor": "Croft",
+      "title": "Tomb",
       "data": "2026-09-24T11:17:03.588-03:00",
-      "content": "dw"
+      "content": "An ancient relic was found"
     },
     {
       "id": "bNRNgi3j1cc",
-      "autor": "wd",
-      "title": "dw",
+      "autor": "Wukong",
+      "title": "Temple",
       "data": "2026-09-24T11:44:03.588-03:00",
-      "content": "dw"
+      "content": "A temple was burned"
     },
     {
       "id": "qL4aYZYXHDE",
@@ -23,10 +23,24 @@
     },
     {
       "id": "ctrPyjaArxY",
-      "autor": "dw",
-      "title": "dw",
+      "autor": "Dragon",
+      "title": "Revolution",
       "data": "2026-09-24T12:42:33.566-03:00",
-      "content": "dw"
+      "content": "A W.G afiliated kingdom was overthrown."
+    },
+    {
+      "id": "p-9xFQRB2hM",
+      "autor": "Inu",
+      "title": "Bark",
+      "data": "2026-09-25T07:29:05.215-03:00",
+      "content": "Woof"
+    },
+    {
+      "id": "mNiZb3N6Grs",
+      "autor": "Neko",
+      "title": "Meow",
+      "data": "2026-09-25T07:56:24.760-03:00",
+      "content": "Meow again"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

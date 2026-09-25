@@ -6,57 +6,27 @@ import { Observable } from 'rxjs';
 @Service()
 export class PostService {
   private httpClient = inject(HttpClient);
+  private baseUrl: string = `http://localhost:3000/posts`;
 
-  createPost(post: Post): Promise<void> {
-    return this.httpClient
-      .post(`http://localhost:3000/posts`, post)
-      .toPromise()
-      .then((response) => {
-        return response;
-      })
-      .catch((error) => {
-        return error;
-      });
+  createPost(post: Post): Observable<void> {
+    return this.httpClient.post<void>(this.baseUrl, post);
   }
 
-  updatePost(post: Post) {
+  updatePost(post: Post): Observable<void> {
     return this.httpClient
-      .put(`http://localhost:3000/posts/${post.id}`, post)
-      .toPromise()
-      .then((response) => {
-        return response;
-      })
-      .catch((error) => {
-        return error;
-      });
+      .put<void>(this.baseUrl + `/${post.id}`, post);
   }
 
-  findPostById(id: string): Promise<Post> {
-    return this.httpClient
-      .get(`http://localhost:3000/posts/${id}`)
-      .toPromise()
-      .then((response) => {
-        return response;
-      })
-      .catch((error) => {
-        return error;
-      });
+  findPostById(id: string): Observable<Post> {
+    return this.httpClient.get<Post>(this.baseUrl + `/${id}`);
   }
 
-  deletePost(id: string) {
-    return this.httpClient
-      .delete(`http://localhost:3000/posts/${id}`)
-      .toPromise()
-      .then((response) => {
-        return response;
-      })
-      .catch((error) => {
-        return error;
-      });
+  deletePost(id: string): Observable<void> {
+    return this.httpClient.delete<void>(this.baseUrl + `/${id}`);
   }
 
   findAll(): Observable<Post[]> {
-    return this.httpClient.get<Post[]>('http://localhost:3000/posts');
+    return this.httpClient.get<Post[]>(this.baseUrl);
 
   }
 }

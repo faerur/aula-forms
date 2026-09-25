@@ -5,3 +5,7 @@
   margin-top: 1rem;
 }
 
+.delete-button {
+  background-color: #ba1a1a !important;
+  color: white !important;
+}

@@ -4,7 +4,7 @@
     <mat-icon>add</mat-icon>
   </button>
 </div>
-<table mat-table [dataSource]="posts">
+<table mat-table [dataSource]="dataSource">
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef>Id</th>
     <td mat-cell *matCellDef="let post">{{post.id}}</td>
@@ -28,12 +28,14 @@
 
    <ng-container matColumnDef="edit">
     <th mat-header-cell *matHeaderCellDef></th>
-    <td mat-cell *matCellDef="let post" class="new"><a mat-stroked-button (click)="openEditFormDialog(post.id)">Editar</a></td>
+    <td mat-cell *matCellDef="let post" class="new"><a mat-stroked-button (click)="openEditFormDialog(post.id)" >Editar</a></td>
   </ng-container>
 
   <ng-container matColumnDef="delete">
     <th mat-header-cell *matHeaderCellDef></th>
-    <td mat-cell *matCellDef="let post" ><a mat-flat-button>Excluir</a></td>
+    <td mat-cell *matCellDef="let post" ><button mat-flat-button class="delete-button" (click)="deletePost(post.id)">
+      Excluir
+    </button></td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

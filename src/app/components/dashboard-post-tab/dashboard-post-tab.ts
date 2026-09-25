@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MatTableModule } from '@angular/material/table';
+import { MatTableModule, MatTableDataSource } from '@angular/material/table';
 import { Post } from '../../models/post';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -18,7 +18,7 @@ export class DashboardPostTab {
     private dialog: MatDialog,
     private postService: PostService,
   ) {}
-  posts: Post[] = [];
+  dataSource = new MatTableDataSource<Post>();
   displayedColumns = ['id', 'author', 'title', 'date', 'edit', 'delete'];
 
   ngOnInit() {
@@ -29,23 +29,38 @@ export class DashboardPostTab {
     const dialogRef = this.dialog.open(DashboardPostFormDialog);
     dialogRef.afterClosed().subscribe((result) => {
       this.getPosts();
-      console.log(result);
     });
   }
 
   openEditFormDialog(id: string) {
-    const dialogRef = this.dialog.open(DashboardPostFormDialog, {id});
-    dialogRef.afterClosed().subscribe((result) => {
+    const dialogRef = this.dialog.open(DashboardPostFormDialog, {
+      data: { id: id },
+    });
+
+    dialogRef.afterClosed().subscribe(() => {
       this.getPosts();
-      console.log(result);
+    });
+  }
+
+  deletePost(id: string) {
+    this.postService.deletePost(id).subscribe({
+      next: () => {
+        this.dataSource.data = this.dataSource.data.filter((post) => post.id !== id);
+      },
+      error: (error) => {
+        console.log(error);
+      },
     });
   }
 
   getPosts() {
-    this.postService
-      .findAll().subscribe({next: (response) => { this.posts = response}, error: (error) => {
+    this.postService.findAll().subscribe({
+      next: (response) => {
+        this.dataSource.data = response;
+      },
+      error: (error) => {
         console.log(error);
       },
-    complete: () => { console.log("Acabou!")}});
+    });
   }
 }
